@@ -91,8 +91,8 @@
             </div>
           </div>
 
-          <div style="display:grid; align-items:end;">
-            <button class="button button--primary" type="submit" {% unless current_variant.available %}disabled{% endunless %}>
+          <div class="product-form__submit-wrap">
+            <button class="button button--primary product-form__submit" type="submit" {% unless current_variant.available %}disabled{% endunless %}>
               {% if current_variant.available %}
                 {{ 'products.product.add_to_cart' | t }}
               {% else %}
