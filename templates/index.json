@@ -19,7 +19,7 @@
         "primary_label": "Shop Joligia",
         "primary_link": "",
         "secondary_label": "Enter the world",
-        "secondary_link": "",
+        "secondary_link": "shopify://collections/all",
         "image": "shopify://shop_images/IMG_2465.jpg",
         "image_note": "Dark romance"
       }
