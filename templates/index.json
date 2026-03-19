@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -8,7 +17,10 @@
         "text": "<p>Refined pieces for everyday polish, gifting, and subtle statement wear.</p>",
         "caption": "The launch collection is intentionally small: seven signature styles, composed to feel exclusive rather than incomplete.",
         "primary_label": "Shop the collection",
+        "primary_link": "",
         "secondary_label": "Read the story",
+        "secondary_link": "",
+        "image": "shopify://shop_images/IMG_2465.jpg",
         "image_note": "Curated launch"
       }
     },
@@ -18,10 +30,12 @@
         "overline": "Launch edit",
         "heading": "A small collection can still feel complete when it is presented with confidence.",
         "text": "<p>Start with a tight assortment and let spacing, photography, and materiality do the work.</p>",
+        "collection": "frontpage",
         "products_to_show": 4,
         "image_ratio": "portrait",
         "show_secondary_image": true,
-        "button_label": "View all pieces"
+        "button_label": "View all pieces",
+        "button_link": ""
       }
     },
     "values": {
@@ -49,7 +63,11 @@
           }
         }
       },
-      "block_order": ["value-1", "value-2", "value-3"],
+      "block_order": [
+        "value-1",
+        "value-2",
+        "value-3"
+      ],
       "settings": {
         "overline": "Why it resonates",
         "heading": "The brand world feels premium because every detail stays restrained and deliberate.",
@@ -62,8 +80,10 @@
         "overline": "Best sellers",
         "heading": "A concise edit of the pieces customers notice first.",
         "text": "<p>Use this section for new arrivals, signatures, or your most conversion-focused styles.</p>",
+        "collection": "spring",
         "products_to_show": 4,
-        "link_label": "Shop the edit"
+        "link_label": "Shop the edit",
+        "link": ""
       }
     },
     "story": {
@@ -73,7 +93,9 @@
         "heading": "A softer, cleaner interpretation of luxury jewellery.",
         "text": "<p>Keep the story clear: thoughtful design, elegant materials, and a calm confidence that feels expensive without trying too hard.</p>",
         "quote": "The design direction favors light, proportion, and polish. Every piece is meant to feel instantly wearable and quietly elevated.",
-        "button_label": "About the brand"
+        "button_label": "About the brand",
+        "button_link": "",
+        "image": "shopify://shop_images/IMG_7759.jpg"
       }
     },
     "social-proof": {
@@ -104,7 +126,11 @@
           }
         }
       },
-      "block_order": ["testimonial-1", "testimonial-2", "testimonial-3"],
+      "block_order": [
+        "testimonial-1",
+        "testimonial-2",
+        "testimonial-3"
+      ],
       "settings": {
         "overline": "Client notes",
         "heading": "Proof should feel elegant too.",
@@ -136,12 +162,17 @@
           }
         }
       },
-      "block_order": ["faq-1", "faq-2", "faq-3"],
+      "block_order": [
+        "faq-1",
+        "faq-2",
+        "faq-3"
+      ],
       "settings": {
         "overline": "Common questions",
         "heading": "Reassurance without visual clutter.",
         "text": "<p>Answer the friction points directly and keep customers moving toward purchase.</p>",
-        "button_label": "Read the FAQ"
+        "button_label": "Read the FAQ",
+        "button_link": ""
       }
     },
     "newsletter": {
@@ -164,14 +195,22 @@
         },
         "gallery-2": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "tall": false
+          }
         },
         "gallery-3": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "tall": false
+          }
         }
       },
-      "block_order": ["gallery-1", "gallery-2", "gallery-3"],
+      "block_order": [
+        "gallery-1",
+        "gallery-2",
+        "gallery-3"
+      ],
       "settings": {
         "overline": "Visual world",
         "heading": "Use imagery to create atmosphere, not clutter.",
@@ -179,5 +218,15 @@
       }
     }
   },
-  "order": ["hero", "featured", "values", "curated", "story", "social-proof", "faq", "newsletter", "gallery"]
+  "order": [
+    "hero",
+    "featured",
+    "values",
+    "curated",
+    "story",
+    "social-proof",
+    "faq",
+    "newsletter",
+    "gallery"
+  ]
 }
