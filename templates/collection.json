@@ -1,20 +1,36 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "collection-hero",
       "settings": {
         "overline": "Collection",
-        "fallback_text": "<p>A composed edit of polished pieces designed to be discovered with ease and worn often.</p>"
+        "fallback_text": "<p>A composed edit of polished pieces designed to be discovered with ease and worn often.</p>",
+        "show_image": true,
+        "meta_note": "Curated for a sharper, more elevated mood."
       }
     },
     "grid": {
       "type": "main-collection-product-grid",
       "settings": {
         "products_per_page": 12,
-        "image_ratio": "portrait",
-        "show_secondary_image": true
+        "image_ratio": "square",
+        "show_secondary_image": true,
+        "grid_overline": "Curated selection",
+        "intro_text": "A quieter presentation gives each piece more room to feel deliberate, elevated, and desirable."
       }
     }
   },
-  "order": ["hero", "grid"]
+  "order": [
+    "hero",
+    "grid"
+  ]
 }
