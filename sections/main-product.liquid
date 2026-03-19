@@ -66,7 +66,7 @@
         {% if product.has_only_default_variant == false %}
           <div class="product-form__variant">
             <label for="VariantSelect-{{ section.id }}">Options</label>
-            <div class="field">
+            <div class="field field--select">
               <select id="VariantSelect-{{ section.id }}" name="id">
                 {% for variant in product.variants %}
                   <option value="{{ variant.id }}" {% if variant == current_variant %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>
@@ -74,13 +74,14 @@
                   </option>
                 {% endfor %}
               </select>
+              <span class="field__select-icon">{% render 'icon', icon: 'chevron-down' %}</span>
             </div>
           </div>
         {% else %}
           <input type="hidden" name="id" value="{{ current_variant.id }}">
         {% endif %}
 
-        <div class="product-form__quantity-row">
+        <div class="product-form__actions">
           <div class="product-form__quantity">
             <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
             <div class="quantity-input" data-quantity-wrapper>
@@ -134,13 +135,13 @@
     {
       "type": "text",
       "id": "eyebrow",
-      "default": "Curated piece",
+      "default": "Signature piece",
       "label": "Eyebrow"
     },
     {
       "type": "textarea",
       "id": "subtitle",
-      "default": "A refined silhouette designed for daily wear, polished gifting, and confident layering.",
+      "default": "A refined design with premium presence, made to feel elevated from first impression through daily wear.",
       "label": "Subtitle"
     },
     {
