@@ -8,7 +8,10 @@
         "text": "<p>Dark romance, sharp detail, and a polished finish that still feels clean, feminine, and expensive.</p>",
         "caption": "Joligia is built around statement pieces with bite: a little dangerous, a little delicate, and styled with restraint.",
         "primary_label": "Shop Joligia",
+        "primary_link": "",
         "secondary_label": "Enter the world",
+        "secondary_link": "",
+        "image": "shopify://shop_images/IMG_2465.jpg",
         "image_note": "Dark romance"
       }
     },
@@ -18,10 +21,12 @@
         "overline": "Dark edit",
         "heading": "A sharp, curated drop with a little danger in it.",
         "text": "<p>A tighter collection reads stronger here: less filler, more attitude, and enough space for each piece to feel intentional.</p>",
+        "collection": "frontpage",
         "products_to_show": 4,
         "image_ratio": "portrait",
         "show_secondary_image": true,
-        "button_label": "View all pieces"
+        "button_label": "View all pieces",
+        "button_link": ""
       }
     },
     "values": {
@@ -62,8 +67,10 @@
         "overline": "Signature pieces",
         "heading": "The styles that carry the Joligia mood at first glance.",
         "text": "<p>A tighter edit of pieces with bite, shine, and enough presence to anchor the whole brand world.</p>",
+        "collection": "spring",
         "products_to_show": 4,
-        "link_label": "Shop the edit"
+        "link_label": "Shop the edit",
+        "link": ""
       }
     },
     "story": {
@@ -73,7 +80,9 @@
         "heading": "Dark-hearted jewellery, refined into a cleaner line.",
         "text": "<p>Joligia lives between romance and edge: softer silhouettes, sharper details, and styling that feels elevated instead of theatrical.</p>",
         "quote": "The mood is subtle menace with polish: feminine, controlled, and impossible to mistake for a generic jewellery brand.",
-        "button_label": "About Joligia"
+        "button_label": "About Joligia",
+        "button_link": "",
+        "image": "shopify://shop_images/IMG_7759.jpg"
       }
     },
     "social-proof": {
@@ -141,7 +150,8 @@
         "overline": "Ordering notes",
         "heading": "Clear answers, so the mood stays uninterrupted.",
         "text": "<p>Keep the practical details easy to trust and let the rest of the site stay focused on product and atmosphere.</p>",
-        "button_label": "Read the FAQ"
+        "button_label": "Read the FAQ",
+        "button_link": ""
       }
     },
     "newsletter": {
@@ -164,11 +174,15 @@
         },
         "gallery-2": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "tall": false
+          }
         },
         "gallery-3": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "tall": false
+          }
         }
       },
       "block_order": ["gallery-1", "gallery-2", "gallery-3"],
