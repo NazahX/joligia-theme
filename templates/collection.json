@@ -1,0 +1,20 @@
+{
+  "sections": {
+    "hero": {
+      "type": "collection-hero",
+      "settings": {
+        "overline": "Collection",
+        "fallback_text": "<p>A composed edit of polished pieces designed to be discovered with ease and worn often.</p>"
+      }
+    },
+    "grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 12,
+        "image_ratio": "portrait",
+        "show_secondary_image": true
+      }
+    }
+  },
+  "order": ["hero", "grid"]
+}

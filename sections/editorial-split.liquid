@@ -1,0 +1,83 @@
+<section class="section">
+  <div class="section-shell editorial-split__grid">
+    <div class="editorial-split__media">
+      {% render 'responsive-image',
+        image: section.settings.image,
+        class: 'editorial-split__image',
+        sizes: '(min-width: 990px) 55vw, 100vw',
+        width: 1600
+      %}
+    </div>
+
+    <div class="editorial-split__content">
+      {% render 'section-heading',
+        overline: section.settings.overline,
+        title: section.settings.heading,
+        text: section.settings.text
+      %}
+
+      {% if section.settings.quote != blank %}
+        <blockquote class="editorial-split__quote">{{ section.settings.quote }}</blockquote>
+      {% endif %}
+
+      {% if section.settings.button_label != blank %}
+        <div class="button-row">
+          <a class="button button--secondary" href="{{ section.settings.button_link | default: routes.root_url }}">{{ section.settings.button_label }}</a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Editorial split",
+  "settings": [
+    {
+      "type": "text",
+      "id": "overline",
+      "default": "Brand story",
+      "label": "Overline"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Designed to feel intimate, polished, and enduring.",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "<p>Balance image and narrative. This is where the site starts to feel editorial and emotionally considered rather than purely transactional.</p>",
+      "label": "Text"
+    },
+    {
+      "type": "textarea",
+      "id": "quote",
+      "default": "Each silhouette is refined until it feels effortless: present enough to elevate a look, restrained enough to become part of daily life.",
+      "label": "Quote"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Read our story",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Editorial split"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,69 @@
+<section class="section section--tight">
+  <div class="content-width">
+    <div class="accordion-group">
+      {% for block in section.blocks %}
+        <details class="accordion" {% if forloop.first %}open{% endif %} {{ block.shopify_attributes }}>
+          <summary>
+            <span>{{ block.settings.question }}</span>
+            {% render 'icon', icon: 'plus' %}
+          </summary>
+          <div class="accordion__content rte">{{ block.settings.answer }}</div>
+        </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ content",
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "default": "How should I care for my jewellery?",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "default": "<p>Store pieces separately, avoid direct contact with perfume or water when possible, and gently wipe with a soft cloth after wear.</p>",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ content",
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How should I care for my jewellery?",
+            "answer": "<p>Store pieces separately, avoid direct contact with perfume or water when possible, and gently wipe with a soft cloth after wear.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Do you offer returns?",
+            "answer": "<p>Yes. Set your returns policy in Shopify and mirror the same information here so customers have consistent guidance before purchasing.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Can I send this as a gift?",
+            "answer": "<p>Use this block to explain gift packaging, optional notes, or special order support if relevant for the brand.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

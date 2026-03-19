@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "overline": "Page",
+        "intro": "<p>Add content in the Shopify page editor or use this fallback introduction.</p>"
+      }
+    }
+  },
+  "order": ["main"]
+}

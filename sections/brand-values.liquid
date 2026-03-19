@@ -1,0 +1,94 @@
+<section class="section section--tight">
+  <div class="section-shell">
+    {% render 'section-heading',
+      overline: section.settings.overline,
+      title: section.settings.heading,
+      text: section.settings.text,
+      alignment: 'center'
+    %}
+
+    <div class="value-grid">
+      {% for block in section.blocks %}
+        <div class="value-card" {{ block.shopify_attributes }}>
+          <h3 class="value-card__title">{{ block.settings.title }}</h3>
+          <p class="value-card__text">{{ block.settings.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand values",
+  "settings": [
+    {
+      "type": "text",
+      "id": "overline",
+      "default": "Brand values",
+      "label": "Overline"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Built on restraint, quality, and everyday wearability.",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "<p>Use this section to establish trust without sounding mass-market. Keep the tone calm, assured, and specific.</p>",
+      "label": "Text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Thoughtfully crafted",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "default": "Clean lines, polished finishes, and a weight that feels intentional in hand.",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Brand values",
+      "blocks": [
+        {
+          "type": "value",
+          "settings": {
+            "title": "Thoughtfully crafted",
+            "text": "Clean lines, polished finishes, and a weight that feels intentional in hand."
+          }
+        },
+        {
+          "type": "value",
+          "settings": {
+            "title": "Quality materials",
+            "text": "Elevated finishes and durable components chosen for daily wear and longevity."
+          }
+        },
+        {
+          "type": "value",
+          "settings": {
+            "title": "Curated design",
+            "text": "A small but complete edit designed to layer beautifully without visual excess."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

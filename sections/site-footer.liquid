@@ -1,0 +1,113 @@
+{% liquid
+  assign footer_menu = section.settings.footer_menu
+  assign policy_menu = section.settings.policy_menu
+%}
+
+<footer class="site-footer section section--tight">
+  <div class="page-width footer__shell">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        {% if settings.logo != blank %}
+          {{ settings.logo | image_url: width: 420 | image_tag: class: 'footer__logo', alt: shop.name }}
+        {% else %}
+          <span class="footer__brand-text">{{ shop.name }}</span>
+        {% endif %}
+        <p class="footer__copy">{{ section.settings.brand_text }}</p>
+
+        <div class="footer__social">
+          {% if settings.social_instagram != blank %}
+            <a href="{{ settings.social_instagram }}" aria-label="Instagram">{% render 'icon', icon: 'instagram' %}</a>
+          {% endif %}
+          {% if settings.social_pinterest != blank %}
+            <a href="{{ settings.social_pinterest }}" aria-label="Pinterest">{% render 'icon', icon: 'pinterest' %}</a>
+          {% endif %}
+          {% if settings.social_tiktok != blank %}
+            <a href="{{ settings.social_tiktok }}" aria-label="TikTok">{% render 'icon', icon: 'tiktok' %}</a>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="footer__nav">
+        <p class="footer__nav-title">Explore</p>
+        {% for link in linklists[footer_menu].links %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {% endfor %}
+      </div>
+
+      <div class="footer__nav">
+        <p class="footer__nav-title">Information</p>
+        {% for link in linklists[policy_menu].links %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {% endfor %}
+      </div>
+
+      <div class="footer__nav">
+        <p class="footer__nav-title">Newsletter</p>
+        <p class="footer__copy">{{ section.settings.newsletter_text }}</p>
+        {% form 'customer', class: 'newsletter-form' %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="field">
+            <input
+              type="email"
+              name="contact[email]"
+              value="{{ form.email }}"
+              placeholder="{{ 'general.newsletter_form.placeholder' | t }}"
+              autocorrect="off"
+              autocapitalize="off"
+              required
+            >
+          </div>
+          <button class="button button--primary" type="submit">{{ 'general.newsletter_form.submit' | t }}</button>
+        {% endform %}
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ section.settings.bottom_text }}</p>
+      <p>{{ section.settings.bottom_secondary }}</p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "footer_menu",
+      "label": "Footer menu",
+      "default": "footer"
+    },
+    {
+      "type": "link_list",
+      "id": "policy_menu",
+      "label": "Policy menu"
+    },
+    {
+      "type": "textarea",
+      "id": "brand_text",
+      "default": "Fine jewellery designed to be worn daily and kept for years. Thoughtful silhouettes, luminous finishes, and a calm luxury point of view.",
+      "label": "Brand text"
+    },
+    {
+      "type": "textarea",
+      "id": "newsletter_text",
+      "default": "Receive collection drops, styling notes, and early access to limited releases.",
+      "label": "Newsletter text"
+    },
+    {
+      "type": "text",
+      "id": "bottom_text",
+      "default": "All rights reserved.",
+      "label": "Bottom text"
+    },
+    {
+      "type": "text",
+      "id": "bottom_secondary",
+      "default": "Crafted for modern rituals.",
+      "label": "Bottom secondary text"
+    }
+  ]
+}
+{% endschema %}

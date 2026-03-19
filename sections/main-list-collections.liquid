@@ -1,0 +1,45 @@
+<section class="section section--tight">
+  <div class="section-shell">
+    <div class="section-heading">
+      <p class="eyebrow">{{ section.settings.overline }}</p>
+      <h1 class="section-heading__title">{{ section.settings.heading }}</h1>
+      {% if section.settings.text != blank %}
+        <div class="section-heading__text rte">{{ section.settings.text }}</div>
+      {% endif %}
+    </div>
+
+    <div class="product-grid">
+      {% for collection in collections %}
+        {% if collection.handle != 'frontpage' %}
+          {% render 'collection-card', collection: collection %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main list collections",
+  "settings": [
+    {
+      "type": "text",
+      "id": "overline",
+      "default": "Collections",
+      "label": "Overline"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Shop by collection",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "<p>As the catalogue grows, this template keeps collection discovery elegant and editorial rather than crowded.</p>",
+      "label": "Text"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,46 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "overline": "FAQ",
+        "intro": "<p>Answer the practical questions clearly so the rest of the site can stay clean and visually restrained.</p>"
+      }
+    },
+    "faq": {
+      "type": "faq-content",
+      "blocks": {
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "question": "What materials do you use?",
+            "answer": "<p>List your exact metals, finishes, stones, and sourcing notes here so customers can purchase with confidence.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "question": "How long will delivery take?",
+            "answer": "<p>Use this block to summarize dispatch timing, shipping methods, and insured delivery if offered.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you offer returns or exchanges?",
+            "answer": "<p>Keep this answer aligned with your Shopify policy settings so the information stays consistent across the storefront.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq",
+          "settings": {
+            "question": "How should I care for my jewellery?",
+            "answer": "<p>Explain cleaning, storage, and wear considerations briefly and clearly.</p>"
+          }
+        }
+      },
+      "block_order": ["faq-1", "faq-2", "faq-3", "faq-4"]
+    }
+  },
+  "order": ["main", "faq"]
+}

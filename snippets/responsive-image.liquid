@@ -1,0 +1,26 @@
+{% liquid
+  assign image_class = class | default: ''
+  assign image_alt = alt | default: image.alt | default: shop.name
+  assign image_loading = loading | default: 'lazy'
+  assign image_sizes = sizes | default: '100vw'
+  assign image_width = width | default: 1600
+  assign placeholder_class = 'placeholder-svg'
+  if image_class != blank
+    assign placeholder_class = placeholder_class | append: ' ' | append: image_class
+  endif
+%}
+
+{% if image != blank %}
+  {{
+    image
+    | image_url: width: image_width
+    | image_tag:
+      loading: image_loading,
+      sizes: image_sizes,
+      widths: '360, 540, 720, 900, 1200, 1440, 1800',
+      class: image_class,
+      alt: image_alt
+  }}
+{% else %}
+  {{ 'image' | placeholder_svg_tag: placeholder_class }}
+{% endif %}

@@ -1,0 +1,114 @@
+<section class="section section--tight">
+  <div class="section-shell faq-teaser__grid">
+    <div>
+      {% render 'section-heading',
+        overline: section.settings.overline,
+        title: section.settings.heading,
+        text: section.settings.text
+      %}
+      {% if section.settings.button_label != blank %}
+        <a class="button button--secondary" href="{{ section.settings.button_link | default: routes.root_url }}">{{ section.settings.button_label }}</a>
+      {% endif %}
+    </div>
+
+    <div class="accordion-group">
+      {% for block in section.blocks %}
+        <details class="accordion" {% if forloop.first %}open{% endif %} {{ block.shopify_attributes }}>
+          <summary>
+            <span>{{ block.settings.question }}</span>
+            {% render 'icon', icon: 'plus' %}
+          </summary>
+          <div class="accordion__content">
+            {{ block.settings.answer }}
+          </div>
+        </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ teaser",
+  "settings": [
+    {
+      "type": "text",
+      "id": "overline",
+      "default": "Need to know",
+      "label": "Overline"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Answers kept concise, clear, and reassuring.",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "<p>Use a short FAQ teaser to reduce friction while keeping the overall homepage clean.</p>",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "View full FAQ",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "default": "What materials do you use?",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "default": "<p>Each product page outlines materials and finish details clearly so customers know exactly what they are purchasing.</p>",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "FAQ teaser",
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What materials do you use?",
+            "answer": "<p>Each product page outlines materials and finish details clearly so customers know exactly what they are purchasing.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>Dispatch windows and delivery estimates are displayed clearly at checkout and repeated on product pages for reassurance.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Can I return an item?",
+            "answer": "<p>Returns are accepted within the period you define in store policies, provided items are unworn and returned in original packaging.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

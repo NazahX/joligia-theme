@@ -1,0 +1,36 @@
+{% if section.settings.show_announcement and section.settings.text != blank %}
+  <div class="announcement-bar">
+    <div class="page-width announcement-bar__inner">
+      {% if section.settings.link != blank %}
+        <a href="{{ section.settings.link }}">{{ section.settings.text }}</a>
+      {% else %}
+        <p>{{ section.settings.text }}</p>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "default": true,
+      "label": "Show announcement"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "default": "Complimentary insured shipping on every order.",
+      "label": "Text"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    }
+  ]
+}
+{% endschema %}

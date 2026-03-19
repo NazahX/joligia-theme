@@ -1,0 +1,56 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "materials": {
+          "type": "detail",
+          "settings": {
+            "heading": "Materials",
+            "content": "<p>Describe metals, finishes, stones, and sizing notes here.</p>"
+          }
+        },
+        "care": {
+          "type": "detail",
+          "settings": {
+            "heading": "Care",
+            "content": "<p>Explain how to store, clean, and preserve the finish for everyday wear.</p>"
+          }
+        },
+        "shipping": {
+          "type": "detail",
+          "settings": {
+            "heading": "Shipping",
+            "content": "<p>Add dispatch timing, insured delivery details, and packaging notes here.</p>"
+          }
+        },
+        "returns": {
+          "type": "detail",
+          "settings": {
+            "heading": "Returns",
+            "content": "<p>Summarize your returns policy in a short, reassuring format.</p>"
+          }
+        }
+      },
+      "block_order": ["materials", "care", "shipping", "returns"],
+      "settings": {
+        "eyebrow": "Signature piece",
+        "subtitle": "A refined design with premium presence, made to feel elevated from first impression through daily wear.",
+        "show_dynamic_checkout": false,
+        "trust_item_1": "Complimentary insured shipping on every order.",
+        "trust_item_2": "Beautiful packaging suitable for gifting.",
+        "trust_item_3": "Straightforward returns according to store policy."
+      }
+    },
+    "related": {
+      "type": "product-recommendations",
+      "settings": {
+        "overline": "Complete the look",
+        "heading": "A few complementary pieces, kept intentionally restrained.",
+        "text": "<p>Related products should feel like a thoughtful stylist's suggestion, not an aggressive cross-sell.</p>",
+        "products_to_show": 4
+      }
+    }
+  },
+  "order": ["main", "related"]
+}

@@ -1,0 +1,61 @@
+<section class="section section--tight">
+  <div class="content-width">
+    <div class="section-heading">
+      <p class="eyebrow">{{ section.settings.overline }}</p>
+      <h2 class="section-heading__title">{{ section.settings.heading }}</h2>
+      <div class="section-heading__text rte">{{ section.settings.text }}</div>
+    </div>
+
+    {% form 'contact', class: 'panel', style: 'display:grid; gap:1rem;' %}
+      <div class="feature-strip" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+        <div class="field">
+          <input type="text" name="contact[name]" placeholder="Name" value="{{ form.name }}">
+        </div>
+        <div class="field">
+          <input type="email" name="contact[email]" placeholder="Email" value="{{ form.email }}" required>
+        </div>
+      </div>
+      <div class="field">
+        <input type="tel" name="contact[phone]" placeholder="Phone (optional)" value="{{ form.phone }}">
+      </div>
+      <div class="field">
+        <textarea name="contact[body]" placeholder="How can we help?">{{ form.body }}</textarea>
+      </div>
+      <div class="button-row">
+        <button class="button button--primary" type="submit">{{ section.settings.button_label }}</button>
+      </div>
+    {% endform %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact form",
+  "settings": [
+    {
+      "type": "text",
+      "id": "overline",
+      "default": "Contact",
+      "label": "Overline"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "We'd be glad to help with any order or product questions.",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "<p>Keep response expectations clear and warm. Mention email timing, bespoke requests, or shipping support here.</p>",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Send message",
+      "label": "Button label"
+    }
+  ]
+}
+{% endschema %}

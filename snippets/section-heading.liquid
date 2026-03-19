@@ -1,0 +1,18 @@
+{% liquid
+  assign overline_text = overline | default: blank
+  assign title_text = title | default: blank
+  assign text_content = text | default: blank
+  assign alignment_class = alignment | default: 'left'
+%}
+
+<div class="section-heading section-heading--{{ alignment_class }}">
+  {% if overline_text != blank %}
+    <p class="eyebrow">{{ overline_text }}</p>
+  {% endif %}
+  {% if title_text != blank %}
+    <h2 class="section-heading__title">{{ title_text }}</h2>
+  {% endif %}
+  {% if text_content != blank %}
+    <div class="section-heading__text rte">{{ text_content }}</div>
+  {% endif %}
+</div>

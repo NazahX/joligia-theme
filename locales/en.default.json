@@ -1,0 +1,61 @@
+{
+  "accessibility": {
+    "skip_to_text": "Skip to content",
+    "open_menu": "Open menu",
+    "close_menu": "Close menu",
+    "open_search": "Open search",
+    "close_search": "Close search",
+    "open_cart": "Open cart",
+    "close_cart": "Close cart"
+  },
+  "general": {
+    "newsletter_form": {
+      "label": "Email",
+      "placeholder": "Enter your email",
+      "submit": "Join",
+      "success": "Thank you for subscribing."
+    },
+    "search": {
+      "heading": "Search",
+      "placeholder": "Search the collection",
+      "submit": "Search",
+      "results_with_count": "{{ count }} results",
+      "no_results": "No results found."
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to bag",
+      "added_to_cart": "Added to bag",
+      "sold_out": "Sold out",
+      "quantity": "Quantity",
+      "view_details": "View details"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Your bag",
+      "empty": "Your bag is currently empty.",
+      "continue_shopping": "Continue shopping",
+      "subtotal": "Subtotal",
+      "checkout": "Checkout",
+      "view_cart": "View bag",
+      "error": "Something went wrong. Please try again."
+    }
+  },
+  "collections": {
+    "general": {
+      "products_with_count": "{{ count }} pieces",
+      "filters": "Filters",
+      "sort_by": "Sort by",
+      "empty": "No pieces are available in this collection yet."
+    }
+  },
+  "customer": {
+    "account_fallback": "Account"
+  }
+}

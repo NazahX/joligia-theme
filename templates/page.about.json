@@ -1,0 +1,54 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "overline": "About",
+        "intro": "<p>Share the founding perspective, material philosophy, and overall design intent behind the brand.</p>"
+      }
+    },
+    "story": {
+      "type": "editorial-split",
+      "settings": {
+        "overline": "Our perspective",
+        "heading": "The collection is built on calm confidence, not excess.",
+        "text": "<p>Use this section to explain why the brand exists, what makes the aesthetic distinct, and how the pieces are meant to be worn.</p>",
+        "quote": "We believe modern jewellery should feel light, intentional, and lasting enough to become part of someone's real routine.",
+        "button_label": "Shop the collection"
+      }
+    },
+    "values": {
+      "type": "brand-values",
+      "blocks": {
+        "value-1": {
+          "type": "value",
+          "settings": {
+            "title": "Premium restraint",
+            "text": "Luxury is communicated through proportion, finish, and clarity rather than heavy visual signals."
+          }
+        },
+        "value-2": {
+          "type": "value",
+          "settings": {
+            "title": "Daily sophistication",
+            "text": "The pieces are meant to move seamlessly from morning styling to evening wear."
+          }
+        },
+        "value-3": {
+          "type": "value",
+          "settings": {
+            "title": "Curated growth",
+            "text": "The launch starts focused, but the system is built to scale elegantly as collections expand."
+          }
+        }
+      },
+      "block_order": ["value-1", "value-2", "value-3"],
+      "settings": {
+        "overline": "What matters",
+        "heading": "A premium point of view is built from consistency.",
+        "text": "<p>Keep this section concise and specific so the brand story remains believable and clear.</p>"
+      }
+    }
+  },
+  "order": ["main", "story", "values"]
+}

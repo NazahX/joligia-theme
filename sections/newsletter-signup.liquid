@@ -1,0 +1,65 @@
+<section class="section">
+  <div class="section-shell">
+    <div class="newsletter-card">
+      <div>
+        <p class="eyebrow">{{ section.settings.overline }}</p>
+        <h2>{{ section.settings.heading }}</h2>
+      </div>
+      <div>
+        <p class="newsletter-card__text">{{ section.settings.text }}</p>
+        {% form 'customer', class: 'newsletter-form', style: 'margin-top: 1.4rem;' %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="field">
+            <input
+              type="email"
+              name="contact[email]"
+              value="{{ form.email }}"
+              placeholder="{{ 'general.newsletter_form.placeholder' | t }}"
+              autocorrect="off"
+              autocapitalize="off"
+              required
+            >
+          </div>
+          <button class="button button--primary" type="submit">{{ section.settings.button_label }}</button>
+        {% endform %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter signup",
+  "settings": [
+    {
+      "type": "text",
+      "id": "overline",
+      "default": "Private list",
+      "label": "Overline"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Subscribe for collection drops and early access.",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "default": "A calm cadence of updates: launch previews, styling notes, and first access to limited releases.",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Join the list",
+      "label": "Button label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter signup"
+    }
+  ]
+}
+{% endschema %}

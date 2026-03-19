@@ -1,0 +1,78 @@
+<section class="section section--tight">
+  <div class="section-shell">
+    {% render 'section-heading',
+      overline: section.settings.overline,
+      title: section.settings.heading,
+      text: section.settings.text
+    %}
+
+    <div class="editorial-gallery__grid">
+      {% for block in section.blocks %}
+        <div class="editorial-gallery__item{% if block.settings.tall %} editorial-gallery__item--tall{% endif %}" {{ block.shopify_attributes }}>
+          {% render 'responsive-image',
+            image: block.settings.image,
+            class: 'editorial-gallery__image',
+            sizes: '(min-width: 990px) 33vw, 50vw',
+            width: 1200
+          %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Editorial gallery",
+  "settings": [
+    {
+      "type": "text",
+      "id": "overline",
+      "default": "From the studio",
+      "label": "Overline"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "A simple visual rhythm keeps the brand world feeling alive.",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "<p>Use this for campaign frames, detail crops, or an Instagram-style visual edit without overwhelming the homepage.</p>",
+      "label": "Text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "tall",
+          "default": false,
+          "label": "Tall image"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Editorial gallery",
+      "blocks": [
+        { "type": "image", "settings": { "tall": true } },
+        { "type": "image" },
+        { "type": "image" }
+      ]
+    }
+  ]
+}
+{% endschema %}

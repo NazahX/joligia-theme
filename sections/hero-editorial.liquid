@@ -1,0 +1,112 @@
+<section class="hero">
+  <div class="section-shell hero__grid">
+    <div class="hero__content">
+      {% render 'section-heading',
+        overline: section.settings.overline,
+        title: section.settings.heading,
+        text: section.settings.text
+      %}
+
+      {% if section.settings.caption != blank %}
+        <p class="hero__text">{{ section.settings.caption }}</p>
+      {% endif %}
+
+      <div class="button-row">
+        {% if section.settings.primary_label != blank %}
+          <a class="button button--primary" href="{{ section.settings.primary_link | default: routes.all_products_collection_url }}">
+            {{ section.settings.primary_label }}
+          </a>
+        {% endif %}
+
+        {% if section.settings.secondary_label != blank %}
+          <a class="button button--secondary" href="{{ section.settings.secondary_link | default: routes.collections_url }}">
+            {{ section.settings.secondary_label }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="hero__media">
+      {% render 'responsive-image',
+        image: section.settings.image,
+        class: 'hero__image',
+        loading: 'eager',
+        sizes: '(min-width: 990px) 55vw, 100vw',
+        width: 1800
+      %}
+      {% if section.settings.image_note != blank %}
+        <div class="hero__caption">{{ section.settings.image_note }}</div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero editorial",
+  "settings": [
+    {
+      "type": "text",
+      "id": "overline",
+      "default": "New collection",
+      "label": "Overline"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Jewellery with a quieter kind of confidence.",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "<p>Refined everyday pieces created to feel polished, intimate, and timeless from first wear.</p>",
+      "label": "Text"
+    },
+    {
+      "type": "textarea",
+      "id": "caption",
+      "default": "A curated launch of seven signature pieces, designed to layer beautifully and wear effortlessly from day to evening.",
+      "label": "Caption"
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "default": "Shop the collection",
+      "label": "Primary button label"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "default": "Discover the story",
+      "label": "Secondary button label"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "image_note",
+      "default": "Modern heirlooms",
+      "label": "Image note"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero editorial"
+    }
+  ]
+}
+{% endschema %}

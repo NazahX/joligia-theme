@@ -1,0 +1,108 @@
+<section class="section section--tight">
+  <div class="section-shell">
+    {% render 'section-heading',
+      overline: section.settings.overline,
+      title: section.settings.heading,
+      text: section.settings.text,
+      alignment: 'center'
+    %}
+
+    <div class="testimonial-grid">
+      {% for block in section.blocks %}
+        <article class="testimonial panel" {{ block.shopify_attributes }}>
+          <p class="testimonial__quote">"{{ block.settings.quote }}"</p>
+          <div class="testimonial__meta">
+            <strong>{{ block.settings.name }}</strong>
+            {% if block.settings.meta != blank %}
+              <p>{{ block.settings.meta }}</p>
+            {% endif %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "overline",
+      "default": "Social proof",
+      "label": "Overline"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Elegant details, beautifully received.",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "<p>Keep proof understated and premium. Short, specific praise feels more credible than generic hype.</p>",
+      "label": "Text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "default": "The finish is beautiful and the proportions are perfect. It feels considered in a way most everyday jewellery doesn't.",
+          "label": "Quote"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "default": "Alyssa M.",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "meta",
+          "default": "Verified customer",
+          "label": "Meta"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "The finish is beautiful and the proportions are perfect. It feels considered in a way most everyday jewellery doesn't.",
+            "name": "Alyssa M.",
+            "meta": "Verified customer"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Minimal without disappearing. Every piece arrives feeling more elevated than the price suggests.",
+            "name": "Camille R.",
+            "meta": "Collected two pieces"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "The packaging, the weight, the overall polish. It all feels thoughtful and genuinely premium.",
+            "name": "Nadia T.",
+            "meta": "Repeat customer"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

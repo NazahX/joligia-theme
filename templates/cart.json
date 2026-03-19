@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-cart",
+      "settings": {
+        "note": "Taxes and shipping are calculated at checkout. Keep this area quiet, clear, and reassuring."
+      }
+    }
+  },
+  "order": ["main"]
+}

@@ -1,0 +1,71 @@
+{% liquid
+  assign related_collection = section.settings.collection
+  if related_collection == blank and product.collections.first
+    assign related_collection = product.collections.first
+  endif
+%}
+
+{% if related_collection != blank %}
+  <section class="section section--tight">
+    <div class="section-shell">
+      {% render 'section-heading',
+        overline: section.settings.overline,
+        title: section.settings.heading,
+        text: section.settings.text
+      %}
+
+      <div class="product-grid">
+        {% assign shown = 0 %}
+        {% for related_product in related_collection.products %}
+          {% if related_product.id != product.id %}
+            {% render 'product-card', product: related_product, image_ratio: 'portrait', show_secondary: true %}
+            {% assign shown = shown | plus: 1 %}
+          {% endif %}
+          {% if shown >= section.settings.products_to_show %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Product recommendations",
+  "settings": [
+    {
+      "type": "text",
+      "id": "overline",
+      "default": "You may also like",
+      "label": "Overline"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Complete the edit with a few complementary pieces.",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "<p>For a small launch catalogue, recommendations should feel curated rather than algorithmic.</p>",
+      "label": "Text"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Optional related collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 4,
+      "label": "Products to show"
+    }
+  ]
+}
+{% endschema %}

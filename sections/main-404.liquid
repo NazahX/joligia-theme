@@ -1,0 +1,20 @@
+<section class="section">
+  <div class="content-width">
+    <div class="panel" style="text-align:center;">
+      <p class="eyebrow">404</p>
+      <h1>Page not found</h1>
+      <p class="page-hero__text" style="margin: 1rem auto 0;">The page you requested is unavailable. Use the links below to return to the collection.</p>
+      <div class="button-row" style="justify-content:center; margin-top: 1.5rem;">
+        <a class="button button--primary" href="{{ routes.all_products_collection_url }}">Shop all pieces</a>
+        <a class="button button--secondary" href="{{ routes.root_url }}">Back home</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main 404",
+  "settings": []
+}
+{% endschema %}

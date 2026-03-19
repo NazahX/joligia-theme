@@ -1,0 +1,128 @@
+{% liquid
+  assign nav_menu = section.settings.menu
+%}
+
+<header
+  class="site-header{% if section.settings.transparent_on_home and template.name == 'index' %} site-header--transparent{% else %} site-header--solid{% endif %}"
+  data-site-header
+>
+  <div class="site-header__bar">
+    <div class="page-width site-header__root" data-header-root>
+      <div class="site-header__left">
+        <button class="site-header__menu-button" type="button" aria-label="{{ 'accessibility.open_menu' | t }}" data-mobile-menu-toggle>
+          {% render 'icon', icon: 'menu' %}
+        </button>
+
+        <nav class="site-header__nav" aria-label="Primary">
+          <ul class="site-header__nav-list">
+            {% for link in linklists[nav_menu].links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+
+      <a class="site-header__brand" href="{{ routes.root_url }}">
+        {% if settings.logo != blank %}
+          {{ settings.logo | image_url: width: 480 | image_tag: class: 'site-header__brand-logo', alt: shop.name }}
+        {% else %}
+          <span class="site-header__brand-text">{{ shop.name }}</span>
+        {% endif %}
+      </a>
+
+      <div class="site-header__actions">
+        <button class="site-header__icon-button" type="button" aria-label="{{ 'accessibility.open_search' | t }}" data-search-open>
+          {% render 'icon', icon: 'search' %}
+        </button>
+
+        {% if settings.enable_account_icon %}
+          <a class="site-header__icon-button" href="{{ routes.account_url }}" aria-label="{{ 'customer.account_fallback' | t }}">
+            {% render 'icon', icon: 'account' %}
+          </a>
+        {% endif %}
+
+        <button class="site-header__icon-button" type="button" aria-label="{{ 'accessibility.open_cart' | t }}" data-drawer-open>
+          {% render 'icon', icon: 'bag' %}
+          {% if cart.item_count > 0 %}
+            <span class="cart-count">{{ cart.item_count }}</span>
+          {% endif %}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-menu" data-mobile-menu>
+    <div class="drawer-backdrop" data-mobile-menu-toggle></div>
+    <div class="mobile-menu__panel">
+      <div class="drawer-header">
+        <p class="drawer-title">{{ shop.name }}</p>
+        <button class="drawer-close" type="button" aria-label="{{ 'accessibility.close_menu' | t }}" data-mobile-menu-toggle>
+          {% render 'icon', icon: 'close' %}
+        </button>
+      </div>
+
+      <nav class="mobile-menu__nav" aria-label="Mobile">
+        {% for link in linklists[nav_menu].links %}
+          {% if link.links != blank %}
+            <details class="mobile-menu__submenu">
+              <summary>
+                <span>{{ link.title }}</span>
+                {% render 'icon', icon: 'chevron-down' %}
+              </summary>
+              <div class="mobile-menu__submenu-links">
+                {% for child_link in link.links %}
+                  <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                {% endfor %}
+              </div>
+            </details>
+          {% else %}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {% endif %}
+        {% endfor %}
+      </nav>
+    </div>
+  </div>
+
+  <div class="search-panel" data-search-panel>
+    <div class="drawer-backdrop" data-search-close></div>
+    <div class="search-panel__panel panel">
+      <div class="drawer-header">
+        <h2 class="drawer-title">{{ 'general.search.heading' | t }}</h2>
+        <button class="drawer-close" type="button" aria-label="{{ 'accessibility.close_search' | t }}" data-search-close>
+          {% render 'icon', icon: 'close' %}
+        </button>
+      </div>
+      <form class="search-form" action="{{ routes.search_url }}" method="get" role="search">
+        <div class="field">
+          <input
+            type="search"
+            name="q"
+            placeholder="{{ 'general.search.placeholder' | t }}"
+            value="{{ search.terms | escape }}"
+          >
+        </div>
+        <button class="button button--primary" type="submit">{{ 'general.search.submit' | t }}</button>
+      </form>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "transparent_on_home",
+      "default": false,
+      "label": "Transparent on home page"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,114 @@
+{% liquid
+  assign featured_collection = section.settings.collection
+%}
+
+<section class="section">
+  <div class="section-shell">
+    {% render 'section-heading',
+      overline: section.settings.overline,
+      title: section.settings.heading,
+      text: section.settings.text,
+      alignment: 'center'
+    %}
+
+    <div class="product-grid featured-collection__grid">
+      {% if featured_collection != blank %}
+        {% for product in featured_collection.products limit: section.settings.products_to_show %}
+          {% render 'product-card', product: product, image_ratio: section.settings.image_ratio, show_secondary: section.settings.show_secondary_image %}
+        {% endfor %}
+      {% else %}
+        {% for index in (1..4) %}
+          <article class="product-card">
+            <div class="product-card__media product-card__media--{{ section.settings.image_ratio }}">
+              {{ 'product-' | append: index | placeholder_svg_tag: 'placeholder-svg product-card__image product-card__image--primary' }}
+            </div>
+            <div class="product-card__content">
+              <h3 class="product-card__title">Signature piece {{ index }}</h3>
+              <div class="price">$220.00</div>
+            </div>
+          </article>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    {% if section.settings.button_label != blank %}
+      <div style="margin-top: 2rem; text-align: center;">
+        <a class="button button--secondary" href="{{ section.settings.button_link | default: featured_collection.url | default: routes.all_products_collection_url }}">
+          {{ section.settings.button_label }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "overline",
+      "default": "Curated edit",
+      "label": "Overline"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "A focused collection designed to feel complete.",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "<p>Present a small assortment with generous spacing so each piece feels deliberate rather than sparse.</p>",
+      "label": "Text"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "default": 4,
+      "label": "Products to show"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "default": "portrait",
+      "options": [
+        { "value": "portrait", "label": "Portrait" },
+        { "value": "square", "label": "Square" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": true,
+      "label": "Show second image on hover"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "View all pieces",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured collection"
+    }
+  ]
+}
+{% endschema %}

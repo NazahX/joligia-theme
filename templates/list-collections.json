@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-list-collections",
+      "settings": {
+        "overline": "Collections",
+        "heading": "Shop by collection",
+        "text": "<p>Use this page once you expand beyond the launch edit and want a calm, premium way to browse categories.</p>"
+      }
+    }
+  },
+  "order": ["main"]
+}

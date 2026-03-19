@@ -1,0 +1,91 @@
+<div class="cart-drawer" data-cart-drawer>
+  <div class="drawer-backdrop" data-drawer-close></div>
+  <aside class="cart-drawer__panel" aria-label="{{ 'cart.general.title' | t }}">
+    <div data-cart-drawer-root>
+      <div class="drawer-header">
+        <h2 class="drawer-title">{{ 'cart.general.title' | t }}</h2>
+        <button class="drawer-close" type="button" aria-label="{{ 'accessibility.close_cart' | t }}" data-drawer-close>
+          {% render 'icon', icon: 'close' %}
+        </button>
+      </div>
+
+      {% if cart.item_count == 0 %}
+        <div class="panel" style="margin-top: 1rem;">
+          <p>{{ 'cart.general.empty' | t }}</p>
+          <a class="button button--primary" href="{{ routes.all_products_collection_url }}" style="margin-top: 1rem;">
+            {{ 'cart.general.continue_shopping' | t }}
+          </a>
+        </div>
+      {% else %}
+        <div class="cart-items" style="margin-top: 1rem;">
+          {% for item in cart.items %}
+            <article class="cart-item">
+              <a class="cart-item__image" href="{{ item.url }}">
+                {% if item.image %}
+                  {{ item.image | image_url: width: 320 | image_tag: alt: item.product.title }}
+                {% else %}
+                  {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                {% endif %}
+              </a>
+              <div class="cart-item__details">
+                <div>
+                  <h3><a href="{{ item.url }}">{{ item.product.title }}</a></h3>
+                  {% unless item.product.has_only_default_variant %}
+                    <p class="cart-item__meta">{{ item.variant.title }}</p>
+                  {% endunless %}
+                </div>
+                <div class="cart-item__row">
+                  <div class="price">{{ item.final_line_price | money }}</div>
+                  <div class="button-row">
+                    <button
+                      class="button button--secondary"
+                      type="button"
+                      data-cart-quantity
+                      data-line="{{ forloop.index }}"
+                      data-quantity="{{ item.quantity | minus: 1 }}"
+                    >
+                      {% render 'icon', icon: 'minus' %}
+                    </button>
+                    <span>{{ item.quantity }}</span>
+                    <button
+                      class="button button--secondary"
+                      type="button"
+                      data-cart-quantity
+                      data-line="{{ forloop.index }}"
+                      data-quantity="{{ item.quantity | plus: 1 }}"
+                    >
+                      {% render 'icon', icon: 'plus' %}
+                    </button>
+                  </div>
+                </div>
+                <button class="link-inline" type="button" data-cart-remove data-line="{{ forloop.index }}">
+                  Remove
+                </button>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+
+        <div class="panel cart-summary" style="margin-top: 1rem;">
+          <div class="cart-summary__row">
+            <span>{{ 'cart.general.subtotal' | t }}</span>
+            <strong>{{ cart.total_price | money }}</strong>
+          </div>
+          <div class="button-row" style="margin-top: 1rem;">
+            <a class="button button--secondary" href="{{ routes.cart_url }}">{{ 'cart.general.view_cart' | t }}</a>
+            <form action="{{ routes.cart_url }}" method="post">
+              <button class="button button--primary" type="submit" name="checkout">{{ 'cart.general.checkout' | t }}</button>
+            </form>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </aside>
+</div>
+
+{% schema %}
+{
+  "name": "Cart drawer",
+  "settings": []
+}
+{% endschema %}
