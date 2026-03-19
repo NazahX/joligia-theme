@@ -127,15 +127,6 @@
         "button_link": ""
       }
     },
-    "newsletter": {
-      "type": "newsletter-signup",
-      "settings": {
-        "overline": "Inner circle",
-        "heading": "Join for drops, restocks, and after-dark previews.",
-        "text": "A restrained flow of updates from Joligia: new releases, styling notes, and first access to limited pieces.",
-        "button_label": "Join Joligia"
-      }
-    },
     "gallery": {
       "type": "editorial-gallery",
       "blocks": {
@@ -171,6 +162,15 @@
         "heading": "Let the imagery feel seductive, polished, and a little untouchable.",
         "text": "<p>Replace these placeholders with campaign photography, detail crops, and studio imagery that pushes the darker Joligia mood.</p>"
       }
+    },
+    "newsletter": {
+      "type": "newsletter-signup",
+      "settings": {
+        "overline": "Inner circle",
+        "heading": "Join for drops, restocks, and after-dark previews.",
+        "text": "A restrained flow of updates from Joligia: new releases, styling notes, and first access to limited pieces.",
+        "button_label": "Join Joligia"
+      }
     }
   },
   "order": [
@@ -179,7 +179,7 @@
     "story",
     "social-proof",
     "faq",
-    "newsletter",
-    "gallery"
+    "gallery",
+    "newsletter"
   ]
 }
