@@ -1,97 +1,36 @@
 {% paginate collection.products by section.settings.products_per_page %}
   <section class="section section--tight">
-    <div class="section-shell collection-layout">
-      <aside class="facets">
-        <form id="FacetFiltersForm" class="facets__form">
-          {% if collection.filters != blank %}
-            {% for filter in collection.filters %}
-              <div class="facet-group">
-                <p class="facet-group__title">{{ filter.label }}</p>
-                {% case filter.type %}
-                  {% when 'list' %}
-                    <div class="facet-list">
-                      {% for filter_value in filter.values %}
-                        <label class="facet-checkbox">
-                          <input
-                            type="checkbox"
-                            name="{{ filter_value.param_name }}"
-                            value="{{ filter_value.value }}"
-                            {% if filter_value.active %}checked{% endif %}
-                            {% if filter_value.count == 0 and filter_value.active == false %}disabled{% endif %}
-                          >
-                          <span>{{ filter_value.label }} ({{ filter_value.count }})</span>
-                        </label>
-                      {% endfor %}
-                    </div>
-                  {% when 'price_range' %}
-                    <div class="facet-list">
-                      <div class="field">
-                        <input
-                          name="{{ filter.min_value.param_name }}"
-                          type="number"
-                          placeholder="Min"
-                          {% if filter.min_value.value %}
-                            value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
-                          {% endif %}
-                        >
-                      </div>
-                      <div class="field">
-                        <input
-                          name="{{ filter.max_value.param_name }}"
-                          type="number"
-                          placeholder="Max"
-                          {% if filter.max_value.value %}
-                            value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
-                          {% endif %}
-                        >
-                      </div>
-                    </div>
-                {% endcase %}
-              </div>
-            {% endfor %}
-            <button class="button button--secondary" type="submit">{{ 'collections.general.filters' | t }}</button>
-          {% endif %}
-        </form>
-      </aside>
-
-      <div>
-        <div class="collection-toolbar">
-          <p class="collection-toolbar__meta">{{ 'collections.general.products_with_count' | t: count: collection.products_count }}</p>
-          <form class="collection-toolbar__sort" id="SortByForm">
-            {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
-            <div class="field">
-              <select name="sort_by" onchange="this.form.submit()">
-                {% for option in collection.sort_options %}
-                  <option value="{{ option.value }}" {% if option.value == sort_by %}selected{% endif %}>{{ option.name }}</option>
-                {% endfor %}
-              </select>
-            </div>
-          </form>
+    <div class="section-shell collection-display">
+      {% if collection.products_count > 0 %}
+        <div class="collection-display__header">
+          <div>
+            <p class="collection-display__eyebrow">{{ section.settings.grid_overline }}</p>
+            <p class="collection-display__intro">{{ section.settings.intro_text }}</p>
+          </div>
+          <p class="collection-display__meta">{{ 'collections.general.products_with_count' | t: count: collection.products_count }}</p>
         </div>
 
-        {% if collection.products_count > 0 %}
-          <div class="product-grid">
-            {% for product in collection.products %}
-              {% render 'product-card', product: product, image_ratio: section.settings.image_ratio, show_secondary: section.settings.show_secondary_image %}
-            {% endfor %}
-          </div>
+        <div class="product-grid product-grid--collection">
+          {% for product in collection.products %}
+            {% render 'product-card', product: product, image_ratio: section.settings.image_ratio, show_secondary: section.settings.show_secondary_image %}
+          {% endfor %}
+        </div>
 
-          {% if paginate.pages > 1 %}
-            <div class="button-row" style="justify-content:center; margin-top: 2rem;">
-              {% if paginate.previous %}
-                <a class="button button--secondary" href="{{ paginate.previous.url }}">{{ 'general.pagination.previous' | t }}</a>
-              {% endif %}
-              {% if paginate.next %}
-                <a class="button button--secondary" href="{{ paginate.next.url }}">{{ 'general.pagination.next' | t }}</a>
-              {% endif %}
-            </div>
-          {% endif %}
-        {% else %}
-          <div class="panel">
-            <p>{{ 'collections.general.empty' | t }}</p>
+        {% if paginate.pages > 1 %}
+          <div class="collection-pagination">
+            {% if paginate.previous %}
+              <a class="button button--secondary" href="{{ paginate.previous.url }}">{{ 'general.pagination.previous' | t }}</a>
+            {% endif %}
+            {% if paginate.next %}
+              <a class="button button--secondary" href="{{ paginate.next.url }}">{{ 'general.pagination.next' | t }}</a>
+            {% endif %}
           </div>
         {% endif %}
-      </div>
+      {% else %}
+        <div class="panel">
+          <p>{{ 'collections.general.empty' | t }}</p>
+        </div>
+      {% endif %}
     </div>
   </section>
 {% endpaginate %}
@@ -124,6 +63,18 @@
       "id": "show_secondary_image",
       "default": true,
       "label": "Show second image on hover"
+    },
+    {
+      "type": "text",
+      "id": "grid_overline",
+      "default": "Curated selection",
+      "label": "Grid overline"
+    },
+    {
+      "type": "textarea",
+      "id": "intro_text",
+      "default": "A quieter presentation gives each piece more room to feel deliberate, elevated, and desirable.",
+      "label": "Intro text"
     }
   ]
 }

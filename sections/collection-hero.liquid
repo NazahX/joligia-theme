@@ -1,11 +1,32 @@
 <section class="collection-hero">
-  <div class="content-width collection-hero__inner">
-    <p class="eyebrow">{{ section.settings.overline }}</p>
-    <h1>{{ collection.title }}</h1>
-    {% if collection.description != blank %}
-      <div class="collection-hero__text rte">{{ collection.description }}</div>
-    {% elsif section.settings.fallback_text != blank %}
-      <div class="collection-hero__text rte">{{ section.settings.fallback_text }}</div>
+  <div class="section-shell collection-hero__layout{% unless collection.featured_image and section.settings.show_image %} collection-hero__layout--text-only{% endunless %}">
+    <div class="collection-hero__inner">
+      <p class="eyebrow">{{ section.settings.overline }}</p>
+      <h1 class="collection-hero__title">{{ collection.title }}</h1>
+      {% if collection.description != blank %}
+        <div class="collection-hero__text rte">{{ collection.description }}</div>
+      {% elsif section.settings.fallback_text != blank %}
+        <div class="collection-hero__text rte">{{ section.settings.fallback_text }}</div>
+      {% endif %}
+
+      <div class="collection-hero__meta">
+        <span>{{ collection.products_count }} pieces</span>
+        {% if section.settings.meta_note != blank %}
+          <span>{{ section.settings.meta_note }}</span>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if collection.featured_image and section.settings.show_image %}
+      <div class="collection-hero__media">
+        {% render 'responsive-image',
+          image: collection.featured_image,
+          class: 'collection-hero__image',
+          sizes: '(min-width: 990px) 34vw, 100vw',
+          width: 1200,
+          loading: 'eager'
+        %}
+      </div>
     {% endif %}
   </div>
 </section>
@@ -17,14 +38,26 @@
     {
       "type": "text",
       "id": "overline",
-      "default": "Collection",
+      "default": "Joligia collection",
       "label": "Overline"
     },
     {
       "type": "richtext",
       "id": "fallback_text",
-      "default": "<p>A composed edit of polished pieces designed to be discovered with ease and worn often.</p>",
+      "default": "<p>A tight edit of dark-romantic pieces with cleaner lines, sharper detail, and a polished finish.</p>",
       "label": "Fallback text"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "default": true,
+      "label": "Show collection image"
+    },
+    {
+      "type": "text",
+      "id": "meta_note",
+      "default": "Curated for a sharper, more elevated mood.",
+      "label": "Meta note"
     }
   ]
 }
