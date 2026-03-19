@@ -3,21 +3,21 @@
     "hero": {
       "type": "hero-editorial",
       "settings": {
-        "overline": "Fine jewellery",
-        "heading": "Jewellery with a quieter kind of confidence.",
-        "text": "<p>Refined pieces for everyday polish, gifting, and subtle statement wear.</p>",
-        "caption": "The launch collection is intentionally small: seven signature styles, composed to feel exclusive rather than incomplete.",
-        "primary_label": "Shop the collection",
-        "secondary_label": "Read the story",
-        "image_note": "Curated launch"
+        "overline": "Joligia",
+        "heading": "Jewellery for the softer side of midnight.",
+        "text": "<p>Dark romance, sharp detail, and a polished finish that still feels clean, feminine, and expensive.</p>",
+        "caption": "Joligia is built around statement pieces with bite: a little dangerous, a little delicate, and styled with restraint.",
+        "primary_label": "Shop Joligia",
+        "secondary_label": "Enter the world",
+        "image_note": "Dark romance"
       }
     },
     "featured": {
       "type": "featured-collection",
       "settings": {
-        "overline": "Launch edit",
-        "heading": "A small collection can still feel complete when it is presented with confidence.",
-        "text": "<p>Start with a tight assortment and let spacing, photography, and materiality do the work.</p>",
+        "overline": "Dark edit",
+        "heading": "A sharp, curated drop with a little danger in it.",
+        "text": "<p>A tighter collection reads stronger here: less filler, more attitude, and enough space for each piece to feel intentional.</p>",
         "products_to_show": 4,
         "image_ratio": "portrait",
         "show_secondary_image": true,
@@ -30,38 +30,38 @@
         "value-1": {
           "type": "value",
           "settings": {
-            "title": "Hand-finished details",
-            "text": "Every surface, proportion, and closure is chosen to feel refined in person, not only on screen."
+            "title": "Dark romance",
+            "text": "The mood leans seductive and slightly dangerous, but the finish stays polished and controlled."
           }
         },
         "value-2": {
           "type": "value",
           "settings": {
-            "title": "Quiet statement design",
-            "text": "Pieces are designed to add presence without excess, layering beautifully across everyday wardrobes."
+            "title": "Sharp femininity",
+            "text": "Soft styling meets pointed detail so every piece feels feminine without turning sweet or predictable."
           }
         },
         "value-3": {
           "type": "value",
           "settings": {
-            "title": "Made to be kept",
-            "text": "The collection is built around longevity, versatility, and a premium unboxing experience."
+            "title": "Clean finish",
+            "text": "Even the bolder pieces stay refined through spacing, proportion, and a premium editorial presentation."
           }
         }
       },
       "block_order": ["value-1", "value-2", "value-3"],
       "settings": {
-        "overline": "Why it resonates",
-        "heading": "The brand world feels premium because every detail stays restrained and deliberate.",
-        "text": "<p>Trust is built through precision, clarity, and thoughtful composition rather than noise.</p>"
+        "overline": "The Joligia mood",
+        "heading": "Dark-hearted detail, refined into something clean.",
+        "text": "<p>The brand works when the attitude is visible but the execution stays calm, balanced, and precise.</p>"
       }
     },
     "curated": {
       "type": "curated-products",
       "settings": {
-        "overline": "Best sellers",
-        "heading": "A concise edit of the pieces customers notice first.",
-        "text": "<p>Use this section for new arrivals, signatures, or your most conversion-focused styles.</p>",
+        "overline": "Signature pieces",
+        "heading": "The styles that carry the Joligia mood at first glance.",
+        "text": "<p>A tighter edit of pieces with bite, shine, and enough presence to anchor the whole brand world.</p>",
         "products_to_show": 4,
         "link_label": "Shop the edit"
       }
@@ -69,11 +69,11 @@
     "story": {
       "type": "editorial-split",
       "settings": {
-        "overline": "Editorial story",
-        "heading": "A softer, cleaner interpretation of luxury jewellery.",
-        "text": "<p>Keep the story clear: thoughtful design, elegant materials, and a calm confidence that feels expensive without trying too hard.</p>",
-        "quote": "The design direction favors light, proportion, and polish. Every piece is meant to feel instantly wearable and quietly elevated.",
-        "button_label": "About the brand"
+        "overline": "The world of Joligia",
+        "heading": "Dark-hearted jewellery, refined into a cleaner line.",
+        "text": "<p>Joligia lives between romance and edge: softer silhouettes, sharper details, and styling that feels elevated instead of theatrical.</p>",
+        "quote": "The mood is subtle menace with polish: feminine, controlled, and impossible to mistake for a generic jewellery brand.",
+        "button_label": "About Joligia"
       }
     },
     "social-proof": {
@@ -82,7 +82,7 @@
         "testimonial-1": {
           "type": "testimonial",
           "settings": {
-            "quote": "The finish is beautiful and the proportions are perfect. It feels considered in a way most everyday jewellery doesn't.",
+            "quote": "It has that darker, more dangerous energy I wanted, but it still feels polished and expensive in person.",
             "name": "Alyssa M.",
             "meta": "Verified customer"
           }
@@ -90,7 +90,7 @@
         "testimonial-2": {
           "type": "testimonial",
           "settings": {
-            "quote": "Minimal without disappearing. Every piece arrives feeling more elevated than the price suggests.",
+            "quote": "The design is edgier than most jewellery I see online, but the finish is clean enough to wear every day.",
             "name": "Camille R.",
             "meta": "Repeat customer"
           }
@@ -98,7 +98,7 @@
         "testimonial-3": {
           "type": "testimonial",
           "settings": {
-            "quote": "The packaging, the weight, the overall polish. It all feels thoughtful and genuinely premium.",
+            "quote": "The whole brand feels curated. Nothing looks mass-market, and the details have real personality.",
             "name": "Nadia T.",
             "meta": "Gifted and kept one for myself"
           }
@@ -106,9 +106,9 @@
       },
       "block_order": ["testimonial-1", "testimonial-2", "testimonial-3"],
       "settings": {
-        "overline": "Client notes",
-        "heading": "Proof should feel elegant too.",
-        "text": "<p>Short testimonials are enough when the product presentation and brand cues already do most of the persuasion.</p>"
+        "overline": "What customers say",
+        "heading": "Loved for the edge, kept for the finish.",
+        "text": "<p>The strongest proof for Joligia is simple: the pieces feel distinctive, wearable, and more elevated in person.</p>"
       }
     },
     "faq": {
@@ -138,19 +138,19 @@
       },
       "block_order": ["faq-1", "faq-2", "faq-3"],
       "settings": {
-        "overline": "Common questions",
-        "heading": "Reassurance without visual clutter.",
-        "text": "<p>Answer the friction points directly and keep customers moving toward purchase.</p>",
+        "overline": "Ordering notes",
+        "heading": "Clear answers, so the mood stays uninterrupted.",
+        "text": "<p>Keep the practical details easy to trust and let the rest of the site stay focused on product and atmosphere.</p>",
         "button_label": "Read the FAQ"
       }
     },
     "newsletter": {
       "type": "newsletter-signup",
       "settings": {
-        "overline": "Private list",
-        "heading": "Receive collection drops, early access, and quiet updates.",
-        "text": "Keep the rhythm light. Subscribers should feel invited into a brand world, not pushed into a funnel.",
-        "button_label": "Join the list"
+        "overline": "Inner circle",
+        "heading": "Join for drops, restocks, and after-dark previews.",
+        "text": "A restrained flow of updates from Joligia: new releases, styling notes, and first access to limited pieces.",
+        "button_label": "Join Joligia"
       }
     },
     "gallery": {
@@ -173,9 +173,9 @@
       },
       "block_order": ["gallery-1", "gallery-2", "gallery-3"],
       "settings": {
-        "overline": "Visual world",
-        "heading": "Use imagery to create atmosphere, not clutter.",
-        "text": "<p>Swap these placeholders for campaign photography, studio stills, or close-up material details.</p>"
+        "overline": "After dark",
+        "heading": "Let the imagery feel seductive, polished, and a little untouchable.",
+        "text": "<p>Replace these placeholders with campaign photography, detail crops, and studio imagery that pushes the darker Joligia mood.</p>"
       }
     }
   },

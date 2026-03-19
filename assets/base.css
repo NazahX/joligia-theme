@@ -1,7 +1,7 @@
 :root {
   --page-width: 1360px;
   --content-width: 1180px;
-  --section-padding: clamp(4.5rem, 8vw, 7.5rem);
+  --section-padding: clamp(3.75rem, 6vw, 6rem);
   --gutter: clamp(1.25rem, 4vw, 2.5rem);
   --radius-sm: 14px;
   --radius-md: 22px;
@@ -81,11 +81,13 @@ h6 {
 }
 
 h1 {
-  font-size: clamp(3rem, 6vw, 5.4rem);
+  font-size: clamp(2.8rem, 5.2vw, 4.9rem);
+  line-height: 0.96;
 }
 
 h2 {
-  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-size: clamp(2.15rem, 3.7vw, 3.45rem);
+  line-height: 0.98;
 }
 
 h3 {
@@ -112,7 +114,7 @@ h3 {
 }
 
 .section--tight {
-  padding: clamp(3rem, 5vw, 4.5rem) 0;
+  padding: clamp(2.75rem, 4vw, 4rem) 0;
 }
 
 .surface {
@@ -130,8 +132,8 @@ h3 {
 
 .section-heading {
   display: grid;
-  gap: 1rem;
-  margin-bottom: clamp(2rem, 4vw, 3rem);
+  gap: 0.85rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .section-heading--center {
@@ -140,12 +142,17 @@ h3 {
 }
 
 .section-heading__title {
-  max-width: 12ch;
+  max-width: 18ch;
+  text-wrap: balance;
 }
 
 .section-heading__text {
-  max-width: 38rem;
+  max-width: 42rem;
   color: var(--color-muted);
+}
+
+.section-heading--center .section-heading__title {
+  max-width: 20ch;
 }
 
 .rte {
@@ -559,7 +566,7 @@ button.shopify-payment-button__button {
 }
 
 .hero {
-  padding: clamp(2rem, 4vw, 3rem) 0 clamp(4rem, 7vw, 6rem);
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(3.5rem, 6vw, 5.5rem);
 }
 
 .hero__grid {
@@ -575,8 +582,12 @@ button.shopify-payment-button__button {
   padding: clamp(1rem, 3vw, 2rem) 0;
 }
 
+.hero__content .section-heading__title {
+  max-width: 9.5ch;
+}
+
 .hero__text {
-  max-width: 34rem;
+  max-width: 32rem;
   color: var(--color-muted);
   font-size: clamp(1rem, 1.5vw, 1.1rem);
 }
@@ -749,8 +760,12 @@ button.shopify-payment-button__button {
 
 .editorial-split__content {
   display: grid;
-  gap: 1.15rem;
+  gap: 1rem;
   padding: clamp(1rem, 3vw, 2rem);
+}
+
+.editorial-split__content .section-heading__title {
+  max-width: 11ch;
 }
 
 .editorial-split__quote {
@@ -1300,7 +1315,7 @@ button.shopify-payment-button__button {
 
 @media screen and (max-width: 749px) {
   :root {
-    --section-padding: clamp(3.75rem, 10vw, 5rem);
+    --section-padding: clamp(3rem, 9vw, 4.25rem);
   }
 
   .site-header__root {
@@ -1318,6 +1333,13 @@ button.shopify-payment-button__button {
 
   .hero {
     padding-top: 1rem;
+  }
+
+  .section-heading__title,
+  .section-heading--center .section-heading__title,
+  .hero__content .section-heading__title,
+  .editorial-split__content .section-heading__title {
+    max-width: 11ch;
   }
 
   .hero__media img,
