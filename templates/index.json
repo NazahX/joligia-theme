@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -54,7 +63,11 @@
           }
         }
       },
-      "block_order": ["value-1", "value-2", "value-3"],
+      "block_order": [
+        "value-1",
+        "value-2",
+        "value-3"
+      ],
       "settings": {
         "overline": "The Joligia mood",
         "heading": "Dark-hearted detail, refined into something clean.",
@@ -113,7 +126,11 @@
           }
         }
       },
-      "block_order": ["testimonial-1", "testimonial-2", "testimonial-3"],
+      "block_order": [
+        "testimonial-1",
+        "testimonial-2",
+        "testimonial-3"
+      ],
       "settings": {
         "overline": "What customers say",
         "heading": "Loved for the edge, kept for the finish.",
@@ -145,7 +162,11 @@
           }
         }
       },
-      "block_order": ["faq-1", "faq-2", "faq-3"],
+      "block_order": [
+        "faq-1",
+        "faq-2",
+        "faq-3"
+      ],
       "settings": {
         "overline": "Ordering notes",
         "heading": "Clear answers, so the mood stays uninterrupted.",
@@ -185,7 +206,11 @@
           }
         }
       },
-      "block_order": ["gallery-1", "gallery-2", "gallery-3"],
+      "block_order": [
+        "gallery-1",
+        "gallery-2",
+        "gallery-3"
+      ],
       "settings": {
         "overline": "After dark",
         "heading": "Let the imagery feel seductive, polished, and a little untouchable.",
@@ -193,5 +218,15 @@
       }
     }
   },
-  "order": ["hero", "featured", "values", "curated", "story", "social-proof", "faq", "newsletter", "gallery"]
+  "order": [
+    "hero",
+    "featured",
+    "values",
+    "curated",
+    "story",
+    "social-proof",
+    "faq",
+    "newsletter",
+    "gallery"
+  ]
 }
